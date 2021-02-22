@@ -1,4 +1,4 @@
-package io.github.marcinjastrzebski.todoapp;
+package io.github.marcinjastrzebski;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
