@@ -1,6 +1,7 @@
 package io.github.marcinjastrzebski.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "tasks")
@@ -8,6 +9,7 @@ class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @NotBlank(message = "Task' description must not be empty")
     private String description;
     private boolean done;
 
