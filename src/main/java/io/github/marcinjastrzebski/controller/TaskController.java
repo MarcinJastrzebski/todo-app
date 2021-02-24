@@ -1,7 +1,8 @@
 package io.github.marcinjastrzebski.controller;
 
+
 import io.github.marcinjastrzebski.model.Task;
-import io.github.marcinjastrzebski.model.SqlTaskRepository;
+import io.github.marcinjastrzebski.model.TaskRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Pageable;
@@ -14,9 +15,9 @@ import java.util.List;
 @RestController
 class TaskController {
     public static final Logger logger = LoggerFactory.getLogger(TaskController.class);
-    private final SqlTaskRepository repository;
+    private final TaskRepository repository;
 
-    public TaskController(SqlTaskRepository repository) {
+    TaskController(final TaskRepository repository) {
         this.repository = repository;
     }
 

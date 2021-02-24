@@ -8,7 +8,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import javax.validation.Validator;
 
 @SpringBootApplication
-public class TodoAppApplication  {
+public class TodoAppApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TodoAppApplication.class, args);
@@ -18,6 +18,5 @@ public class TodoAppApplication  {
 	Validator validator() {
 		return new LocalValidatorFactoryBean();
 	}
-
 
 }
