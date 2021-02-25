@@ -1,24 +1,27 @@
 package io.github.marcinjastrzebski.controller;
 
-import org.springframework.beans.factory.annotation.Value;
+import io.github.marcinjastrzebski.TaskConfigurationProperties;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 class InfoController {
+    private DataSourceProperties dataSource;
+    private TaskConfigurationProperties myProp;
 
-    @Value("${spring.datasource.url}")
-    private String url;
-    @Value("${my.prop}")
-    private String myProp;
+    InfoController(final DataSourceProperties dataSource, final TaskConfigurationProperties myProp) {
+        this.dataSource = dataSource;
+        this.myProp = myProp;
+    }
 
     @GetMapping("/info/url")
     String url() {
-        return url;
+        return dataSource.getUrl();
     }
 
     @GetMapping("info/prop")
-    String myProp() {
-        return myProp;
+    boolean myProp() {
+        return myProp.isAllowMultipleTasksFromTemplate();
     }
 }
