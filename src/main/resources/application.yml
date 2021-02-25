@@ -8,4 +8,6 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
-my.prop: 'test'
+  main:
+    banner-mode: off
+task.allowMultipleTasksFromTemplate: false
