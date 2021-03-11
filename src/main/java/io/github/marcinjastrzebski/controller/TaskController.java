@@ -36,7 +36,7 @@ class TaskController {
     }
 
     @PutMapping("/tasks/{id}")
-    ResponseEntity<?> updateTask(@PathVariable int id, @RequestBody @Valid Task toUpdate){
+    ResponseEntity<?> updateTask(@PathVariable int id, @RequestBody @Valid Task toUpdate) {
         if (!repository.existsById(id)) {
             return ResponseEntity.notFound().build();
         }
@@ -46,13 +46,13 @@ class TaskController {
     }
 
     @PostMapping("/tasks")
-    ResponseEntity<Task> createTask(@RequestBody @Valid Task toCreate){
+    ResponseEntity<Task> createTask(@RequestBody @Valid Task toCreate) {
         Task result = repository.save(toCreate);
-        return ResponseEntity.created(URI.create("/"+ result.getId())).body(result);
+        return ResponseEntity.created(URI.create("/" + result.getId())).body(result);
     }
 
     @GetMapping("/tasks/{id}")
-    ResponseEntity<Task> getTaskById(@PathVariable int id){
+    ResponseEntity<Task> getTaskById(@PathVariable int id) {
         return repository.findById(id)
                 .map(task -> ResponseEntity.ok(task))
                 .orElse(ResponseEntity.notFound().build());
