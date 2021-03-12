@@ -51,4 +51,9 @@ public class Task {
     void setDeadline(LocalDateTime deadline) {
         this.deadline = deadline;
     }
+
+    @PrePersist
+    void prePersist() {
+        createdOn = LocalDateTime.now();
+    }
 }
