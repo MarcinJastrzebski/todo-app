@@ -52,6 +52,12 @@ public class Task {
         this.deadline = deadline;
     }
 
+    public void updateFrom(final Task source) {
+        description = source.description;
+        done = source.done;
+        deadline = source.deadline;
+    }
+
     @PrePersist
     void prePersist() {
         createdOn = LocalDateTime.now();
