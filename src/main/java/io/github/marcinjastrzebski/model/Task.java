@@ -56,4 +56,9 @@ public class Task {
     void prePersist() {
         createdOn = LocalDateTime.now();
     }
+
+    @PreUpdate
+    void preMerge() {
+        updatedOn = LocalDateTime.now();
+    }
 }
