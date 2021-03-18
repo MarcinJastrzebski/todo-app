@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tasks")
-public class Task {
+public class Task extends BaseAuditableEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
