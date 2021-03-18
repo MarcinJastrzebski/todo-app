@@ -14,8 +14,6 @@ public class Task {
     private String description;
     private boolean done;
     private LocalDateTime deadline;
-    private LocalDateTime createdOn;
-    private LocalDateTime updatedOn;
 
     Task() {
     }
@@ -56,15 +54,5 @@ public class Task {
         description = source.description;
         done = source.done;
         deadline = source.deadline;
-    }
-
-    @PrePersist
-    void prePersist() {
-        createdOn = LocalDateTime.now();
-    }
-
-    @PreUpdate
-    void preMerge() {
-        updatedOn = LocalDateTime.now();
     }
 }
